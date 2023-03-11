@@ -21,7 +21,7 @@
 
     <!--Something new added table identification and striping-->
     
-    <tbody class="table table-primary table-striped-columns accordion-item">
+    <tbody class="table table-primary">
 
         @foreach (var i in Model.basket.Items)
         {
@@ -30,6 +30,15 @@
                 <td>@i.Quantity</td>
                 <td>@i.Book.Price</td>
                 <td>@(i.Quantity * i.Book.Price)</td>
+
+                <td class="text-center">
+                    <form method="post" asp-page-handler="Remove">
+                        <input type="hidden" name="bookId" value="@i.Book.BookId" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                </td>
+
             </tr>
         }
     </tbody>
@@ -45,7 +54,7 @@
 
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Purchasing</a>
-
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Purchase">Checkout</a>
     <!--Extra bootstrap feature adding a notification badge-->
     <button type="button" class="btn btn-primary btn-success float-end">
         Book Store Rewards Program Money <span class="badge text-bg-secondary">
