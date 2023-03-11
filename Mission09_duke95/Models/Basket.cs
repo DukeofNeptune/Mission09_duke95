@@ -8,8 +8,8 @@ namespace Mission09_duke95.Models
 {
     public class Basket
     {
+        //Add basket and Calculate total function
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
-
         public void AddItem(Book book, int qty)
         {
             BasketLineItem line = Items

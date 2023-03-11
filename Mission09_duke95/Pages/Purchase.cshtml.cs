@@ -20,7 +20,7 @@ namespace Mission09_duke95.Pages
         public Basket basket { get; set; }
 
         public string ReturnUrl { get; set; }
-
+        //Create OnGet and OnPost functions
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";

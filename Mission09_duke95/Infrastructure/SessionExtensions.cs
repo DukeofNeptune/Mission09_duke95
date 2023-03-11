@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mission09_duke95.Infrastructure
 {
+    //Create SetJSon and GetJson functions
     public static class SessionExtensions
     {
         public static void SetJson(this ISession session, string key, object value)
